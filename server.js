@@ -34,7 +34,16 @@ app.get('/instruments', (req, res) => {
     res.render('instruments/index.ejs');
 });
 
+// Synths
+app.get('/synths', (req, res) => {
+    res.render('synths/index.ejs');
+});
 
+
+// Drum Machines
+app.get('/drums', (req, res) => {
+  res.render("drums/index.ejs");
+});
 
 // POST
 
