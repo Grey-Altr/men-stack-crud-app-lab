@@ -22,9 +22,16 @@ app.use(express.urlencoded({extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 
-// GETS
+// GETS ---------------------------------------------------------------
+
+// Landing page
 app.get('/', (req, res) => {
     res.render('index.ejs');
+});
+
+// Instruments
+app.get('/instruments', (req, res) => {
+    res.render('instruments/index.ejs');
 });
 
 
