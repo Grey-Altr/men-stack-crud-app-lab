@@ -9,7 +9,7 @@
     <%- include('../partials/nav') %>
     <h1>Add Instrument</h1>
 
-    <form action="">
+    <form action="/instruments" method="POST">
         <label for="name">Name</label>
         <input type="text" name="name" id="name">
         <label for="manufacturer">Manufacturer</label>
@@ -25,5 +25,6 @@
         <input type="text" name="img" id="img">
         <button type="submit">Submit</button>
     </form>
+
 </body>
 </html>

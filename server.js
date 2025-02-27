@@ -12,6 +12,8 @@ mongoose.connection.on('connected', () => {
     console.log(`Connected on MongoDB ${mongoose.connection.name}`);
 });
 
+const Instrument = require('./models/instrument.js');
+
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server is running...');
 });
@@ -50,7 +52,12 @@ app.get('/drums', (req, res) => {
 });
 
 // POST
-
+app.post('/instruments', async (req, res) => {
+    req.body.name === 'on';
+    req.body.manufacturer === 'on';
+    await Instrument.create(req.body);
+    res.redirect('/instruments/add');
+});
 
 
 
