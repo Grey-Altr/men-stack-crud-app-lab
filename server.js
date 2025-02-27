@@ -23,7 +23,9 @@ app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 
 // GETS
-
+app.get('/', (req, res) => {
+    res.render('index.ejs');
+});
 
 
 
