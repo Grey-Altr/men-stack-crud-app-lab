@@ -8,5 +8,22 @@
 <body>
     <%- include('../partials/nav') %>
     <h1>Add Instrument</h1>
+
+    <form action="">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <label for="manufacturer">Manufacturer</label>
+        <input type="text" name="manufacturer" id="manufacturer">
+        <label for="release">Release Date</label>
+        <input type="date" name="date" id="date">
+        <label for="category">Category</label>
+        <select name="category" id="categor">
+            <option value="synth">Synthesizer</option>
+            <option value="Drum machine">Drum machine</option>
+        </select>
+        <label for="image">Add Image</label>
+        <input type="text" name="img" id="img">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
