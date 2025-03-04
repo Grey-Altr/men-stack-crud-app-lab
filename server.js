@@ -31,6 +31,11 @@ app.get('/instruments/new', (req, res) => {
     res.render('instruments/new.ejs');
 });
 
+app.get('/instruments/:instrumentId', async (req, res) => {
+    const foundInst = await Instrument.findById(req.params.instrumentId);
+    res.render('instruments/show.ejs', { instrument: foundInst });
+});
+
 // POST /
 app.post('/instruments', async (req, res) => {
     if (req.body.owned === 'on') {
