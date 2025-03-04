@@ -6,11 +6,11 @@
     <title>Instruments Index</title>
   </head>
   <body>
-    <h1>All Instruments</h1>
     <a href="/instruments/new">Add New Instrument</a>
+    <h1>All Instruments</h1>
     <ul>
         <% instruments.forEach(instrument => { %>
-            <li><%= instrument.name %></li>
+            <li><a href="/instruments/<%= instrument.id %>"> <%= instrument.name %></a></li>
         <% }); %>
     </ul>
   </body>
