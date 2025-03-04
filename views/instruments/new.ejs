@@ -7,5 +7,20 @@
   </head>
   <body>
     <h1>Add a new instrument</h1>
+    <form action="/intruments" method="POST">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+
+        <label for="manufacturer">Manufacturer: </label>
+        <input type="text" name="manufacturer" id="manufacturer">
+
+        <label for="release">Release: </label>
+        <input type="date" name="release" id="release">
+
+        <label for="owned">Owned: </label>
+        <input type="checkbox" name="owned" id="owned">
+        
+        <button type="submit">Add Instrument</button>
+    </form>
   </body>
 </html>
