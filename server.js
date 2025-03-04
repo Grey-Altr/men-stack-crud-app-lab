@@ -11,6 +11,8 @@ mongoose.connection.on('connected', () => {
 });
 const Instrument = require('./models/instruments.js');
 
+app.use(express.urlencoded.apply({ extended: false }));
+
 app.listen(3000, () => {
     console.log('Listening on port 3000');
 });
@@ -22,4 +24,10 @@ app.get('/', async (req, res) => {
 
 app.get('/instruments/new', (req, res) => {
     res.render('instruments/new.ejs');
+});
+
+// POST /
+app.post('/instruments', async (req, res) => {
+    console.log(req.body);
+    res.redirect('instruments/new');
 });
