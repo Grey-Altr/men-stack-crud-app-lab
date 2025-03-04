@@ -8,5 +8,5 @@ app.listen(3000, () => {
 
 // GET /
 app.get('/', async (req, res) => {
-    res.send('test');
+    res.render('index.ejs');
 });
