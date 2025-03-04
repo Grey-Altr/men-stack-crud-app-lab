@@ -17,6 +17,18 @@ app.use(express.urlencoded.apply({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 
+// PUT /
+app.put('/instruments/:instrumentId', async (req, res) => {
+  if (req.body.owned === "on") {
+    req.body.owned = true;
+  } else {
+    req.body.owned = false;
+  };
+  await Instrument.findByIdAndUpdate(req.params.instrumentId, req.body);
+  res.redirect(`/instruments/${req.params.instrumentId}`);
+});
+
+
 app.listen(3000, () => {
     console.log('Listening on port 3000');
 });
@@ -40,7 +52,7 @@ app.get('/instruments/:instrumentId', async (req, res) => {
     res.render('instruments/show.ejs', { instrument: foundInst });
 });
 
-app.get('/instruments/:instrumentId', async (req, res) => {
+app.get('/instruments/:instrumentId/edit', async (req, res) => {
     const foundInst = await Instrument.findById(req.params.instrumentId);
     res.render('instruments/edit.ejs', {
         instrument: foundInst,
