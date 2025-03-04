@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instruments Index</title>
+  </head>
+  <body>
+    <h1>All Instruments</h1>
+    <a href="/instruments/new">Add New Instrument</a>
+    <ul>
+        <% instruments.forEach(instrument => { %>
+            <li><%= instrument.name %></li>
+        <% }); %>
+    </ul>
+  </body>
+</html>

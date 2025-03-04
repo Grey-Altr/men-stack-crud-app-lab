@@ -22,8 +22,9 @@ app.get('/', async (req, res) => {
     res.render('index.ejs');
 });
 
-app.get('/instruments', (req, res) => {
-    res.send('index');
+app.get('/instruments', async (req, res) => {
+    const allInsts = await Instrument.find();
+    res.render('instruments/index.ejs', { instruments: allInsts });
 });
 
 app.get('/instruments/new', (req, res) => {
@@ -38,5 +39,5 @@ app.post('/instruments', async (req, res) => {
         req.body.owned = false;
     };
     await Instrument.create(req.body);
-    res.redirect('/instruments/new');
+    res.redirect('/instruments');
 });
