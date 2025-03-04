@@ -2,6 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -12,6 +14,8 @@ mongoose.connection.on('connected', () => {
 const Instrument = require('./models/instruments.js');
 
 app.use(express.urlencoded.apply({ extended: false }));
+app.use(methodOverride('_method'));
+app.use(morgan('dev'));
 
 app.listen(3000, () => {
     console.log('Listening on port 3000');
