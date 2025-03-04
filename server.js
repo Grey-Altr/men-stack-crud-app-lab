@@ -22,6 +22,10 @@ app.get('/', async (req, res) => {
     res.render('index.ejs');
 });
 
+app.get('/instruments', (req, res) => {
+    res.send('index');
+});
+
 app.get('/instruments/new', (req, res) => {
     res.render('instruments/new.ejs');
 });
