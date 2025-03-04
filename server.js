@@ -38,5 +38,5 @@ app.post('/instruments', async (req, res) => {
         req.body.owned = false;
     };
     await Instrument.create(req.body);
-    res.redirect('instruments/new');
+    res.redirect('/instruments/new');
 });
