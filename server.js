@@ -28,6 +28,11 @@ app.get('/instruments/new', (req, res) => {
 
 // POST /
 app.post('/instruments', async (req, res) => {
-    console.log(req.body);
+    if (req.body.owned === 'on') {
+        req.body.owned = true;
+    } else {
+        req.body.owned = false;
+    };
+    await Instrument.create(req.body);
     res.redirect('instruments/new');
 });
