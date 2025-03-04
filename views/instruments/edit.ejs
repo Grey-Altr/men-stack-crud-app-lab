@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= instrument.name %></title>
+</head>
+<body>
+    <a href="/instruments/">Back to Instruments</a>
+    <h1>Edit <%= instrument.name %></h1>
+    <form action="/instruments/<%=instrument._id%>?_method=PUT" method="POST">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" value="<%= instrument.name">
+
+        <label for="manufacturer">Manufacturer: </label>
+        <input type="text" name="manufacturer" id="manufacturer" value="<%= instrument.manufacturer">
+
+        <label for="release">Release: </label>
+        <input type="date" name="release" id="release">
+
+        <label for="owned">Owned: </label>
+        <input type="checkbox" name="owned" id="owned" <% if (instrument.owned) { %>checked<% }> >
+        
+        <button type="submit">Update Instrument</button>
+    </form>
+</body>
+</html>
