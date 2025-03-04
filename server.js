@@ -19,3 +19,7 @@ app.listen(3000, () => {
 app.get('/', async (req, res) => {
     res.render('index.ejs');
 });
+
+app.get('/instruments/new', (req, res) => {
+    res.send('user form page');
+});
