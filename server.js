@@ -40,6 +40,13 @@ app.get('/instruments/:instrumentId', async (req, res) => {
     res.render('instruments/show.ejs', { instrument: foundInst });
 });
 
+app.get('/instruments/:instrumentId', async (req, res) => {
+    const foundInst = await Instrument.findById(req.params.instrumentId);
+    res.render('instruments/edit.ejs', {
+        instrument: foundInst,
+    });
+});
+
 // POST /
 app.post('/instruments', async (req, res) => {
     if (req.body.owned === 'on') {
@@ -48,5 +55,11 @@ app.post('/instruments', async (req, res) => {
         req.body.owned = false;
     };
     await Instrument.create(req.body);
+    res.redirect('/instruments');
+});
+
+// DELETE /
+app.delete('/instruments/:instrumentId', async (req, res) => {
+    await Instrument.findByIdAndDelete(req.params.instrumentId);
     res.redirect('/instruments');
 });

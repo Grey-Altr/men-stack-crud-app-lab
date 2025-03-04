@@ -6,14 +6,18 @@
     <title><%= instrument.name %></title> <!-- Dynamic title based on fruit name -->
   </head>
   <body>
-    <a href="/instruments/">Back to Instruments</a>
     <h1><%= instrument.name %></h1>
     <p><%= instrument.manufacturer %></p>
     <p><%= instrument.release %></p>
     <% if (instrument.owned) { %>
-        <p>You own this instrument.</p>
-    <% } else { %>
+      <p>You own this instrument.</p>
+      <% } else { %>
         <p>You don't own this yet.</p>
-    <% } %>
+        <% } %>
+    <form action="/instruments/<%=instrument._id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete <%= instrument.name %></button>
+    </form>
+    <a href="/instruments/<%= instrument._id %>/edit">Edit <%= instrument.name %></a>
+    <a href="/instruments/">Back to Instruments</a>
 </body>
 </html>
