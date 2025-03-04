@@ -21,5 +21,5 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/instruments/new', (req, res) => {
-    res.send('user form page');
+    res.render('instruments/new.ejs');
 });
